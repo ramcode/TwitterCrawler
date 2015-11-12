@@ -1,0 +1,19 @@
+Queries
+
+#delete index
+curl http://urkk55f9b98d.rameshcse17.koding.io:8983/solr/project1-a/update?commit=true -d '<delete><query>*:*</query></delete>'
+curl http://urkk55f9b98d.rameshcse17.koding.io:8983/solr/project1-a --data '<delete><query>*:*</query></delete>' -H 'Content-type:text/xml; charset=utf-8'
+#update index
+
+
+curl 'http://urkk55f9b98d.rameshcse17.koding.io:8983/solr/project1-a/update --data '<commit/>' -H 'Content-type:text/xml; charset=utf-8'
+
+#index file
+
+curl 'http://urkk55f9b98d.rameshcse17.koding.io:8983/solr/project1-a/update/json?commit=true' --data-binary @$(echo project1-a/json/full_index_09_21_2015.json) -H 'Content-type:application'
+
+#top k terms
+curl 'http://urkk55f9b98d.rameshcse17.koding.io:8983/solr/project1-a/terms?wt=json&indent=true&debugQuery=true&terms.fl=text&terms.sort=count'
+
+#download file
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O FILENAME
